@@ -5,26 +5,27 @@
 
 英文原版仓库地址：https://github.com/DML308/COStream
 
-## 编辑
+## 本地预览的方式
+```bash
+# 若要预览实验室网站文档则需安装 nodejs 和 hexo
+$ npm install -g hexo-cli hexo-server #hexo是一款流行的博客生成工具,用来把.md生成.html 静态网页
+$ git clone git@github.com:DML308/cn.costream.org.git #中文站点
+# $ git clone git@github.com:DML308/costream.org.git    #英文站点
+$ cd cn.costream.org
+$ npm install #hexo 工具的package.json里定义了一些Dependencies插件的名字,这些插件并不会把包内容上传github而只是上传它们的名字和版本号以节省网络空间, 所以此时在本地把它们按照定义好的规则下载下来
+$ hexo serve #开启 localhost:4000以后这是一个本地的 Web 服务器,如果按下 Ctrl+C 那么该服务器就会停止. 如果既想开着 hexo serve 又想动 git 那么最好开两个Git Bash 窗口
+```
+## 编辑&提交
 
 ``` bash
-#modify XX.md
-$ hexo generate
+#首先修改一个 XX.md, 然后执行下列指令
 $ git status
 $ git add -A
 $ git commit 
 $ git push
 ```
+push 之后, 持续集成服务(travis-ci)会自动将 master 部署到`gh-pages`, 稍等片刻访问[https://cn.costream.org](https://cn.costream.org)即可看到结果
 
-## 为 algolia 搜索建立索引
-
-```bash
-$ hexo algolia
-```
-
-## 部署
-
-该站点使用[travis-ci持续集成服务](https://travis-ci.org) 对 `master` 分支进行部署到 `gh-pages` - Git Pages。
 
 ## 如何参与贡献
 
