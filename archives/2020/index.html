@@ -5,21 +5,21 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   <title>
-    运行第一个COStream程序 — COStream</title>
+    COStream</title>
   <meta charset="utf-8">
   <meta name="description" content>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="alternate" hreflang="x-default" href="https://costream.org/guide/helloworld.html">
-  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/guide/helloworld.html">
+  <link rel="alternate" hreflang="x-default" href="https://costream.org/archives/2020/index.html">
+  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/archives/2020/index.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="运行第一个COStream程序 — COStream">
+  <meta property="og:title" content="COStream">
   <meta property="og:description" content>
   <meta property="og:image" content="https://cn.costream.org/images/logo.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="运行第一个COStream程序 — COStream">
+  <meta name="twitter:title" content="COStream">
   <meta name="twitter:description" content>
   <meta name="twitter:image" content="https://cn.costream.org/images/logo.png">
 
@@ -59,7 +59,7 @@
   <style>body{filter:blur(10px)}</style>
   <!-- this needs to be loaded before guide's inline scripts -->
   <script src="/js/vue.js"></script>
-  <script>window.PAGE_TYPE = "guide"</script>
+  <script>window.PAGE_TYPE = ""</script>
 
   <!-- ga -->
   <script>
@@ -92,12 +92,12 @@
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <a class="nav-link">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link current">教程</a></li>
+        <li><a href="/guide/" class="nav-link">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -153,8 +153,8 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/guide/helloworld.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/guide/helloworld.html" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/archives/2020/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/archives/2020/index.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
@@ -166,9 +166,8 @@
   
   <div id="main" class="fix-sidebar">
     
-    
-  <div class="sidebar">
-  <div class="sidebar-inner">
+    <div class="sidebar">
+  <div class="sidebar-inner-index">
     <ul class="main-menu">
       <li>
   <form id="search-form">
@@ -179,12 +178,12 @@
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <a class="nav-link">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link current">教程</a></li>
+        <li><a href="/guide/" class="nav-link">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -240,243 +239,156 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/guide/helloworld.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/guide/helloworld.html" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/archives/2020/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/archives/2020/index.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
 <!--<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>-->
 
     </ul>
-    <div class="list">
-      
-      
-        <h2>
-          
-          教程
+  </div>
+</div>
+
+<div id="hero">
+  <div class="inner">
+    <div class="left">
+      <img class="hero-logo" src="/images/CO.svg">
+    </div><div class="right">
+      <h2 class="vue">COStream</h2>
+      <h1>
+        高性能<br>数据流编程语言
+      </h1>
+      <p>
+        <a id="modal-player" class="button has-icon" href="#">
+          <svg aria-labelledby="simpleicons-play-icon" role="img" viewbox="0 0 100 125" fill="#FFFFFF"><title id="simpleicons-play-icon" lang="en">Play icon</title><path d="M50,3.8C24.5,3.8,3.8,24.5,3.8,50S24.5,96.2,50,96.2S96.2,75.5,96.2,50S75.5,3.8,50,3.8z M71.2,53.3l-30.8,18  c-0.6,0.4-1.3,0.5-1.9,0.5c-0.6,0-1.3-0.1-1.9-0.5c-1.2-0.6-1.9-1.9-1.9-3.3V32c0-1.4,0.8-2.7,1.9-3.3c1.2-0.6,2.7-0.6,3.8,0  l30.8,18c1.2,0.6,1.9,1.9,1.9,3.3S72.3,52.7,71.2,53.3z"/></svg>
+
+          特性介绍</a>
+        <a class="button white" href="/guide/">起步</a>
+        <a class="button gray has-icon" href="https://github.com/DML308/COStream" target="_blank">
+          <svg aria-labelledby="simpleicons-github-dark-icon" lang="" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon" lang="en">GitHub Dark icon</title><path fill="#7F8C8D" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+          GITHUB</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 <!--
-          
-            <select class="version-select">
-              <option value="SELF" selected>2.x</option>
-              <option value="v1">1.0</option>
-              <option value="012">0.12</option>
-              <option value="011">0.11</option>
-            </select>
-          
+<div id="special-sponsor">
+  <h3>Special Sponsors</h3>
+  <br>
+  <a href="https://stdlib.com/" target="_blank">
+    <img src="/images/stdlib.png" style="width:140px">
+    <span>Function as a Service Platform and Library</span>
+  </a>
+  <br>
+  <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank">
+    <img src="/images/bit.png" style="width:60px;height:60px">
+    <span>The fastest way to share code</span>
+  </a>
+</div>
 -->
-        </h2>
-        <ul class="menu-root">
-  
-	
-    
-      
-        <li><h3>基础</h3></li>
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/index.html" class="sidebar-link">简介</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/installation.html" class="sidebar-link">安装</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/helloworld.html" class="sidebar-link current">运行第一个COStream程序</a>
-    </li>
-  
-	
-    
-      
-      
-      <li><h3>文法手册</h3></li>
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/grammar.html" class="sidebar-link">文法简介</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/2.html" class="sidebar-link">关键字与类型</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/3.html" class="sidebar-link">流数据处理</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/4.html" class="sidebar-link">层次性流程序构造</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/5.html" class="sidebar-link">内置Composite</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/6.html" class="sidebar-link">程序结构</a>
-    </li>
-  
-	
-    
-      
-      
-			
-      <li><h3>其它</h3></li>
-      
-    
-    
-    <li>
-      <a href="/guide/team.html" class="sidebar-link">认识团队</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/MD_GIT.html" class="sidebar-link">Git 使用简明教程</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/link-document.html" class="sidebar-link check-hide">文献资料</a>
-    </li>
-  
-	
-    
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/link_software.html" class="sidebar-link">软件资源</a>
-    </li>
-  
-</ul>
-<style>
-.check-hide{
-  display:none;
-}
-</style>
 
-      
+<div id="highlights">
+  <div class="inner">
+    <div class="point">
+      <h2>高效</h2>
+        <p>充分利用流程序的并行性<br>自动实现特定域中流应用的优化<br>提高程序员在数据流程序编程效率</p>
+        
+    </div>
+
+    <div class="point">
+      <h2>直观</h2>
+        <p>采用数据流图的方式来描述应用的处理过程，用节点表示计算，边表示数据的流动</p>
+    </div>
+
+    <div class="point">
+      <h2>多用途</h2>
+      <p>
+          胜任多项大数据量处理应用<br>如媒体处理、信号处理、搜索应用、数据文件处理
+      </p>
     </div>
   </div>
 </div>
 
+<!-- <div id="sponsors">
+  <div class="inner">
+    <h3>资金支持</h3>
+<a href="http://www.nsfc.gov.cn/" target="_blank" style="width: 45%;min-width:200px;">
+  <img src="/images/nsfc.jpg" style="width: 100%;">
+</a>
+<a href="http://www.most.gov.cn/" target="_blank" style="width: 45%;min-width:200px;">
+  <img src="/images/most.png" style="width: 100%;">
+</a>
+<br>
+<br>
+<br>
 
-<div class="content guide with-sidebar helloworld-guide">
-  
-    
-  
-  
-    <h1>运行第一个COStream程序</h1>
-  
-  
-    <h3 id="运行COStream程序"><a href="#运行COStream程序" class="headerlink" title="运行COStream程序"></a>运行COStream程序</h3><p>尝试运行例子程序中的快速傅里叶变换的COStream程序:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/COStream</span><br><span class="line">$ mkdir run_tests</span><br><span class="line">$ cp tests/SPLtest/Benchmarks/06-FFT5/FFT6.cos run_tests/FFT6.cos</span><br><span class="line">$ <span class="built_in">cd</span> run_tests</span><br><span class="line">$ COStreamC -x86 -nCpuCore 2 FFT6.cos -o ./fft/     </span><br><span class="line"><span class="comment">#出现 compile successful</span></span><br><span class="line">$ <span class="built_in">cd</span> fft</span><br><span class="line">$ make              <span class="comment">#生成可执行文件a.out</span></span><br><span class="line">$ ./a.out           <span class="comment">#出现执行结果。</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="COStream命令说明"><a href="#COStream命令说明" class="headerlink" title="COStream命令说明"></a>COStream命令说明</h3><p>编译.cos程序命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ COStreamC -x86 -nCpucore 2 文件名 -o ./k/</span><br><span class="line">$ COStreamC -gpu -nGpu 4 文件名 -o ./<span class="built_in">test</span>/ -multi 38400</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>说明：</p>
-<ul>
-<li>CosC为编译命令</li>
-<li>x86 或 gpu为选择后端</li>
-<li>-nCpucore 或-nGpu 设置运行核数</li>
-<li>./k/设置生成文件在当前目录下新建名为k的文件夹       </li>
-</ul>
-</blockquote>
-<p>其他操作:</p>
-<ul>
-<li>执行可执行文件并将结果重定向到result.txt文件： ./可执行文件名 &gt; result.txt</li>
-<li>求执行时间：time ./可执行文件名  -i 10000</li>
-<li>生成同步数据流图：dot 文件名.dot  -Tpng -o 图名称.png</li>
-</ul>
 
-  
-  
-    <div class="guide-links">
-      
-      
-        <span>← <a href="/guide/installation.html">安装</a></span>
-      
-      
-      
-        <span style="float: right;"><a href="/guide/grammar-book/grammar.html">文法简介</a> →</span>
-      
-    </div>
-  
-  <div class="footer">
-    发现错误？想参与编辑？
-    	
-	  <a href="https://github.com/DML308/cn.costream.org/tree/master/src/guide/helloworld.md" target="_blank">
-		  在 GitHub 上编辑此页！
-	  </a>
-  	
+
+<script>
+window.addEventListener('load', function () {
+  [].forEach.call(document.querySelectorAll('.open-collective-sponsors img'), function (img) {
+    if (img.width === 1) {
+      img.width = 0
+      img.parentElement.style.margin = '0 -1px 0 0'
+    }
+  })
+})
+</script>
+
   </div>
+</div> -->
+
+<div id="footer">
+  <p>
+    <a class="social-icon" href="https://github.com/DML308/COStream" target="_blank">
+      <svg aria-labelledby="simpleicons-github-icon" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon" lang="en">GitHub icon</title><path fill="#FFFFFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+    </a>
+  </p>
+	<p>遵循 <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">Apache 开源协议</a><br>
+  Copyright &copy; 2013-2020 DML308</p>
 </div>
+
+<div id="video-modal" class="modal">
+  <div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"></div>
+</div>
+
+<script>
+(function () {
+  var topScrolled = false
+  var sponsors = document.getElementById('sponsors')
+  var sponsorTop = sponsors.offsetTop
+  var sponsorActive = false
+
+  window.addEventListener('resize', function () {
+    sponsorTop = sponsors.offsetTop
+  })
+
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 165 && !topScrolled) {
+      topScrolled = true
+      document.getElementById('mobile-bar').classList.remove('top')
+    } else if (window.pageYOffset <= 165 && topScrolled) {
+      topScrolled = false
+      document.getElementById('mobile-bar').classList.add('top')
+    }
+    if (window.pageYOffset > sponsorTop - 100) {
+      if (!sponsorActive) {
+        sponsorActive = true
+        sponsors.classList.add('active')
+      }
+    } else {
+      if (sponsorActive) {
+        sponsorActive = false
+        sponsors.classList.remove('active')
+      }
+    }
+  })
+})()
+</script>
 
     
   </div>

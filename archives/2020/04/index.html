@@ -5,21 +5,21 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   <title>
-    文献资料 — COStream</title>
+    COStream</title>
   <meta charset="utf-8">
   <meta name="description" content>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="alternate" hreflang="x-default" href="https://costream.org/guide/link-document.html">
-  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/guide/link-document.html">
+  <link rel="alternate" hreflang="x-default" href="https://costream.org/archives/2020/04/index.html">
+  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/archives/2020/04/index.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="文献资料 — COStream">
+  <meta property="og:title" content="COStream">
   <meta property="og:description" content>
   <meta property="og:image" content="https://cn.costream.org/images/logo.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="文献资料 — COStream">
+  <meta name="twitter:title" content="COStream">
   <meta name="twitter:description" content>
   <meta name="twitter:image" content="https://cn.costream.org/images/logo.png">
 
@@ -59,7 +59,7 @@
   <style>body{filter:blur(10px)}</style>
   <!-- this needs to be loaded before guide's inline scripts -->
   <script src="/js/vue.js"></script>
-  <script>window.PAGE_TYPE = "guide"</script>
+  <script>window.PAGE_TYPE = ""</script>
 
   <!-- ga -->
   <script>
@@ -92,12 +92,12 @@
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <a class="nav-link">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link current">教程</a></li>
+        <li><a href="/guide/" class="nav-link">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -153,8 +153,8 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/guide/link-document.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/guide/link-document.html" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/archives/2020/04/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/archives/2020/04/index.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
@@ -166,9 +166,8 @@
   
   <div id="main" class="fix-sidebar">
     
-    
-  <div class="sidebar">
-  <div class="sidebar-inner">
+    <div class="sidebar">
+  <div class="sidebar-inner-index">
     <ul class="main-menu">
       <li>
   <form id="search-form">
@@ -179,12 +178,12 @@
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <a class="nav-link">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link current">教程</a></li>
+        <li><a href="/guide/" class="nav-link">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -240,311 +239,156 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/guide/link-document.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/guide/link-document.html" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/archives/2020/04/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/archives/2020/04/index.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
 <!--<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>-->
 
     </ul>
-    <div class="list">
-      
-      
-        <h2>
-          
-          教程
+  </div>
+</div>
+
+<div id="hero">
+  <div class="inner">
+    <div class="left">
+      <img class="hero-logo" src="/images/CO.svg">
+    </div><div class="right">
+      <h2 class="vue">COStream</h2>
+      <h1>
+        高性能<br>数据流编程语言
+      </h1>
+      <p>
+        <a id="modal-player" class="button has-icon" href="#">
+          <svg aria-labelledby="simpleicons-play-icon" role="img" viewbox="0 0 100 125" fill="#FFFFFF"><title id="simpleicons-play-icon" lang="en">Play icon</title><path d="M50,3.8C24.5,3.8,3.8,24.5,3.8,50S24.5,96.2,50,96.2S96.2,75.5,96.2,50S75.5,3.8,50,3.8z M71.2,53.3l-30.8,18  c-0.6,0.4-1.3,0.5-1.9,0.5c-0.6,0-1.3-0.1-1.9-0.5c-1.2-0.6-1.9-1.9-1.9-3.3V32c0-1.4,0.8-2.7,1.9-3.3c1.2-0.6,2.7-0.6,3.8,0  l30.8,18c1.2,0.6,1.9,1.9,1.9,3.3S72.3,52.7,71.2,53.3z"/></svg>
+
+          特性介绍</a>
+        <a class="button white" href="/guide/">起步</a>
+        <a class="button gray has-icon" href="https://github.com/DML308/COStream" target="_blank">
+          <svg aria-labelledby="simpleicons-github-dark-icon" lang="" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon" lang="en">GitHub Dark icon</title><path fill="#7F8C8D" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+          GITHUB</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 <!--
-          
-            <select class="version-select">
-              <option value="SELF" selected>2.x</option>
-              <option value="v1">1.0</option>
-              <option value="012">0.12</option>
-              <option value="011">0.11</option>
-            </select>
-          
+<div id="special-sponsor">
+  <h3>Special Sponsors</h3>
+  <br>
+  <a href="https://stdlib.com/" target="_blank">
+    <img src="/images/stdlib.png" style="width:140px">
+    <span>Function as a Service Platform and Library</span>
+  </a>
+  <br>
+  <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank">
+    <img src="/images/bit.png" style="width:60px;height:60px">
+    <span>The fastest way to share code</span>
+  </a>
+</div>
 -->
-        </h2>
-        <ul class="menu-root">
-  
-	
-    
-      
-        <li><h3>基础</h3></li>
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/index.html" class="sidebar-link">简介</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/installation.html" class="sidebar-link">安装 COStreamC</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/installation-2.html" class="sidebar-link">安装 COStreamPP</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/installation-3.html" class="sidebar-link">安装 COStreamJS</a>
-    </li>
-  
-	
-    
-      
-      
-      <li><h3>文法手册</h3></li>
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/grammar.html" class="sidebar-link">文法简介</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/2.html" class="sidebar-link">关键字与类型</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/3.html" class="sidebar-link">流数据处理</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/4.html" class="sidebar-link">层次性流程序构造</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/5.html" class="sidebar-link">内置Composite</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/grammar-book/6.html" class="sidebar-link">程序结构</a>
-    </li>
-  
-	
-    
-      
-      
-      
-        <li><h3>扩展阅读</h3></li>
+
+<div id="highlights">
+  <div class="inner">
+    <div class="point">
+      <h2>高效</h2>
+        <p>充分利用流程序的并行性<br>自动实现特定域中流应用的优化<br>提高程序员在数据流程序编程效率</p>
         
-			
-    
-    
-    <li>
-      <a href="/guide/extensions/SymbolTable.html" class="sidebar-link">符号表 & 动态执行上下文</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/extensions/Matrix.html" class="sidebar-link">矩阵扩展</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/extensions/NN.html" class="sidebar-link">神经网络层</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-      <li><h3>其它</h3></li>
-      
-    
-    
-    <li>
-      <a href="/guide/team.html" class="sidebar-link">认识团队</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/MD_GIT.html" class="sidebar-link">Git 使用简明教程</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/link-document.html" class="sidebar-link current check-hide">文献资料</a>
-    </li>
-  
-	
-    
-      
-      
-      
-			
-    
-    
-    <li>
-      <a href="/guide/link_software.html" class="sidebar-link">软件资源</a>
-    </li>
-  
-</ul>
-<style>
-.check-hide{
-  display:none;
-}
-</style>
+    </div>
 
-      
+    <div class="point">
+      <h2>直观</h2>
+        <p>采用数据流图的方式来描述应用的处理过程，用节点表示计算，边表示数据的流动</p>
+    </div>
+
+    <div class="point">
+      <h2>多用途</h2>
+      <p>
+          胜任多项大数据量处理应用<br>如媒体处理、信号处理、搜索应用、数据文件处理
+      </p>
     </div>
   </div>
 </div>
 
+<!-- <div id="sponsors">
+  <div class="inner">
+    <h3>资金支持</h3>
+<a href="http://www.nsfc.gov.cn/" target="_blank" style="width: 45%;min-width:200px;">
+  <img src="/images/nsfc.jpg" style="width: 100%;">
+</a>
+<a href="http://www.most.gov.cn/" target="_blank" style="width: 45%;min-width:200px;">
+  <img src="/images/most.png" style="width: 100%;">
+</a>
+<br>
+<br>
+<br>
 
-<div class="content guide with-sidebar link-document-guide">
-  
-    
-  
-  
-    <h1>文献资料</h1>
-  
-  
-    <h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><ol>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20170526_M201472818_%E6%9D%A8%E7%91%9E%E7%91%9E.pdf?attname=" target="_blank" rel="noopener">杨瑞瑞___面向多核 CPU/众核 GPU 异构集群的数据 流编程模型研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20170525_%E9%99%88%E8%AF%9A_%E6%AF%95%E8%AE%BE.docx?attname=" target="_blank" rel="noopener">陈  诚___基于动态速率边的数据流程序任务调度和缓存优化</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20170525_%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%872.7_%E6%B1%AA%E4%BA%AE.docx?attname=" target="_blank" rel="noopener">汪  亮___面向多核的数据流程序任务划分与调度方法研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20170525_210_M201472797_%E8%8E%AB%E6%96%8C%E7%94%9F.pdf?attname=" target="_blank" rel="noopener">莫斌生___基于COStream的HEVC并行编码方法</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20160525_%E9%99%88%E7%8F%8D_M201372752_5_24.doc?attname=" target="_blank" rel="noopener">陈 珍___基于数据流的HEVC CTU预测划分和环路滤波并行化研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20160525_210_M201372772_%E6%9D%A8%E8%83%9C%E5%93%B2.pdf?attname=" target="_blank" rel="noopener">杨胜哲___数据流程序动态调度与优化方法研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20150527_M201272766_%E6%9D%8E%E5%BD%A6.pdf?attname=" target="_blank" rel="noopener">李 彦___数据流程序优化与可视化编程环境研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20150525%E8%82%96%E7%A1%95.doc?attname=" target="_blank" rel="noopener">肖 硕___基于数据流的图像特征值提取与索引构建方法研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20150525%E9%99%88%E6%96%87%E6%96%8C_%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87.doc?attname=" target="_blank" rel="noopener">陈文斌___基于GPU/CPU混合架构的流程序多粒度划分与调度方法研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20150525_%E6%9D%A8%E7%A7%8B%E5%90%89.pdf?attname=" target="_blank" rel="noopener">杨秋吉___面向 Storm 的数据流编程模型与优化方法研究</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20140220_%E6%9D%8E%E9%B9%A4_%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87.doc?attname=" target="_blank" rel="noopener">李 鹤___面向X86多核处理器的数据流程序任务调度与缓存优化</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20140117%E9%BB%8E%E6%98%8A_%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87.doc?attname=" target="_blank" rel="noopener">黎 昊___面向GPU的数据流程序并行优化</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/20130524_%E5%BC%A0%E7%BB%B4%E7%BB%B4_COStream%EF%BC%9A%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%9E%E7%8E%B0.doc?attname=" target="_blank" rel="noopener">张维维___COStream：一种面向数据流的编程语言和编译器实现</a></li>
-</ol>
-<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><ol>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B8%AD%E6%96%87%E7%89%88.pdf?attname=" target="_blank" rel="noopener">编译原理-中文版</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E9%BE%99%E4%B9%A6%E8%8B%B1%E6%96%87%E7%89%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89.pdf?attname=" target="_blank" rel="noopener">编译原理-英文版</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E9%99%88%E6%84%8F%E4%BA%91%E7%AC%AC%E4%BA%8C%E7%89%88.pdf?attname=" target="_blank" rel="noopener">编译原理-陈意云版</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88.pdf?attname=" target="_blank" rel="noopener">算法导论</a></li>
-<li><a href="http://pax91yxjs.bkt.clouddn.com/Guide%20to%20DataFlow%20Supercomputing.pdf?attname=" target="_blank" rel="noopener">Guide to DataFlow Supercomputing</a></li>
-</ol>
 
-  
-  
-    <div class="guide-links">
-      
-      
-        <span>← <a href="/guide/MD_GIT.html">Git 使用简明教程</a></span>
-      
-      
-      
-        <span style="float: right;"><a href="/guide/link_software.html">软件资源</a> →</span>
-      
-    </div>
-  
-  <div class="footer">
-    发现错误？想参与编辑？
-    	
-	  <a href="https://github.com/DML308/cn.costream.org/tree/master/src/guide/link-document.md" target="_blank">
-		  在 GitHub 上编辑此页！
-	  </a>
-  	
+
+<script>
+window.addEventListener('load', function () {
+  [].forEach.call(document.querySelectorAll('.open-collective-sponsors img'), function (img) {
+    if (img.width === 1) {
+      img.width = 0
+      img.parentElement.style.margin = '0 -1px 0 0'
+    }
+  })
+})
+</script>
+
   </div>
+</div> -->
+
+<div id="footer">
+  <p>
+    <a class="social-icon" href="https://github.com/DML308/COStream" target="_blank">
+      <svg aria-labelledby="simpleicons-github-icon" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon" lang="en">GitHub icon</title><path fill="#FFFFFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+    </a>
+  </p>
+	<p>遵循 <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">Apache 开源协议</a><br>
+  Copyright &copy; 2013-2020 DML308</p>
 </div>
+
+<div id="video-modal" class="modal">
+  <div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"></div>
+</div>
+
+<script>
+(function () {
+  var topScrolled = false
+  var sponsors = document.getElementById('sponsors')
+  var sponsorTop = sponsors.offsetTop
+  var sponsorActive = false
+
+  window.addEventListener('resize', function () {
+    sponsorTop = sponsors.offsetTop
+  })
+
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 165 && !topScrolled) {
+      topScrolled = true
+      document.getElementById('mobile-bar').classList.remove('top')
+    } else if (window.pageYOffset <= 165 && topScrolled) {
+      topScrolled = false
+      document.getElementById('mobile-bar').classList.add('top')
+    }
+    if (window.pageYOffset > sponsorTop - 100) {
+      if (!sponsorActive) {
+        sponsorActive = true
+        sponsors.classList.add('active')
+      }
+    } else {
+      if (sponsorActive) {
+        sponsorActive = false
+        sponsors.classList.remove('active')
+      }
+    }
+  })
+})()
+</script>
 
     
   </div>

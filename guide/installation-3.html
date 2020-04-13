@@ -5,21 +5,21 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   <title>
-    COStream 0.6.0 Released — COStream</title>
+    安装 COStreamJS — COStream</title>
   <meta charset="utf-8">
   <meta name="description" content>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <link rel="alternate" hreflang="x-default" href="https://costream.org/2019/09/21/0.6.0-release/">
-  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/2019/09/21/0.6.0-release/">
+  <link rel="alternate" hreflang="x-default" href="https://costream.org/guide/installation-3.html">
+  <link rel="alternate" hreflang="zh" href="https://cn.costream.org/guide/installation-3.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="COStream 0.6.0 Released — COStream">
+  <meta property="og:title" content="安装 COStreamJS — COStream">
   <meta property="og:description" content>
   <meta property="og:image" content="https://cn.costream.org/images/logo.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="COStream 0.6.0 Released — COStream">
+  <meta name="twitter:title" content="安装 COStreamJS — COStream">
   <meta name="twitter:description" content>
   <meta name="twitter:image" content="https://cn.costream.org/images/logo.png">
 
@@ -59,7 +59,7 @@
   <style>body{filter:blur(10px)}</style>
   <!-- this needs to be loaded before guide's inline scripts -->
   <script src="/js/vue.js"></script>
-  <script>window.PAGE_TYPE = ""</script>
+  <script>window.PAGE_TYPE = "guide"</script>
 
   <!-- ga -->
   <script>
@@ -92,12 +92,12 @@
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link">学习</a><span class="arrow"></span>
+  <a class="nav-link current">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link">教程</a></li>
+        <li><a href="/guide/" class="nav-link current">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -153,8 +153,8 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/2019/09/21/0.6.0-release/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/2019/09/21/0.6.0-release/" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/guide/installation-3.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/guide/installation-3.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
@@ -166,24 +166,25 @@
   
   <div id="main" class="fix-sidebar">
     
-    <div class="sidebar blog">
+    
+  <div class="sidebar">
   <div class="sidebar-inner">
     <ul class="main-menu">
       <li>
   <form id="search-form">
-    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
 </li>
 <li>
     <a href="/guide/installation.html" class="nav-link team">安装</a>
 </li>
 <li class="nav-dropdown-container learn">
-  <a class="nav-link">学习</a><span class="arrow"></span>
+  <a class="nav-link current">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
         <li><a href="/guide/MD_GIT.html" class="nav-link
                 ">Git</a></li>
-        <li><a href="/guide/" class="nav-link">教程</a></li>
+        <li><a href="/guide/" class="nav-link current">教程</a></li>
         <li><a href="/guide/grammar-book/grammar.html" class="nav-link">文法</a></li>
         <li><a href="/api/" class="nav-link">源码</a></li>
       <li><a href="/examples/" class="nav-link">示例</a></li>
@@ -239,8 +240,8 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://costream.org/2019/09/21/0.6.0-release/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.costream.org/2019/09/21/0.6.0-release/" class="nav-link" target="_blank">简体中文</a></li>
+    <li><a href="https://costream.org/guide/installation-3.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.costream.org/guide/installation-3.html" class="nav-link" target="_blank">简体中文</a></li>
   </ul>
 </li>
 
@@ -248,26 +249,279 @@
 
     </ul>
     <div class="list">
-      <h2>
-        Recent Posts
-        <a href="/atom.xml" target="_blank" style="vertical-align: middle; margin-left: 5px;">
-          <img src="/images/feed.png" style="width: 15px; height: 15px;">
-        </a>
-      </h2>
-      <ul style="padding: 0;">
       
-        <li>
-          <a href="/2019/09/21/0.6.0-release/" class="sidebar-link current">COStream 0.6.0 Released</a>
-        </li>
       
-      </ul>
+        <h2>
+          
+          教程
+<!--
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+-->
+        </h2>
+        <ul class="menu-root">
+  
+	
+    
+      
+        <li><h3>基础</h3></li>
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/index.html" class="sidebar-link">简介</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/installation.html" class="sidebar-link">安装 COStreamC</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/installation-2.html" class="sidebar-link">安装 COStreamPP</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/installation-3.html" class="sidebar-link current">安装 COStreamJS</a>
+    </li>
+  
+	
+    
+      
+      
+      <li><h3>文法手册</h3></li>
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/grammar.html" class="sidebar-link">文法简介</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/2.html" class="sidebar-link">关键字与类型</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/3.html" class="sidebar-link">流数据处理</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/4.html" class="sidebar-link">层次性流程序构造</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/5.html" class="sidebar-link">内置Composite</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/grammar-book/6.html" class="sidebar-link">程序结构</a>
+    </li>
+  
+	
+    
+      
+      
+      
+        <li><h3>扩展阅读</h3></li>
+        
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/SymbolTable.html" class="sidebar-link">符号表 & 动态执行上下文</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/Matrix.html" class="sidebar-link">矩阵扩展</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/NN.html" class="sidebar-link">神经网络层</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+      <li><h3>其它</h3></li>
+      
+    
+    
+    <li>
+      <a href="/guide/team.html" class="sidebar-link">认识团队</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/MD_GIT.html" class="sidebar-link">Git 使用简明教程</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/link-document.html" class="sidebar-link check-hide">文献资料</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/link_software.html" class="sidebar-link">软件资源</a>
+    </li>
+  
+</ul>
+<style>
+.check-hide{
+  display:none;
+}
+</style>
+
+      
     </div>
   </div>
 </div>
-<div class="content with-sidebar blog post">
-  <h1>COStream 0.6.0 Released</h1>
-  <h4>Sep 21, 2019</h4>
-  <h3 id="message"><a href="#message" class="headerlink" title="message"></a>message</h3>
+
+
+<div class="content guide with-sidebar installation-3-guide">
+  
+    
+  
+  
+    <h1>安装 COStreamJS</h1>
+  
+  
+    
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/guide/installation-2.html">安装 COStreamPP</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/guide/grammar-book/grammar.html">文法简介</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+    发现错误？想参与编辑？
+    	
+	  <a href="https://github.com/DML308/cn.costream.org/tree/master/src/guide/installation-3.md" target="_blank">
+		  在 GitHub 上编辑此页！
+	  </a>
+  	
+  </div>
 </div>
 
     

@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   <title>
-    安装 — COStream</title>
+    安装 COStreamC — COStream</title>
   <meta charset="utf-8">
   <meta name="description" content>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,12 +14,12 @@
   <link rel="alternate" hreflang="zh" href="https://cn.costream.org/guide/installation.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="安装 — COStream">
+  <meta property="og:title" content="安装 COStreamC — COStream">
   <meta property="og:description" content>
   <meta property="og:image" content="https://cn.costream.org/images/logo.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="安装 — COStream">
+  <meta name="twitter:title" content="安装 COStreamC — COStream">
   <meta name="twitter:description" content>
   <meta name="twitter:image" content="https://cn.costream.org/images/logo.png">
 
@@ -273,6 +273,7 @@
         <li><h3>基础</h3></li>
       
       
+      
 			
     
     
@@ -284,22 +285,36 @@
     
       
       
+      
 			
     
     
     <li>
-      <a href="/guide/installation.html" class="sidebar-link current">安装</a>
+      <a href="/guide/installation.html" class="sidebar-link current">安装 COStreamC</a>
     </li>
   
 	
     
       
       
+      
 			
     
     
     <li>
-      <a href="/guide/helloworld.html" class="sidebar-link">运行第一个COStream程序</a>
+      <a href="/guide/installation-2.html" class="sidebar-link">安装 COStreamPP</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/installation-3.html" class="sidebar-link">安装 COStreamJS</a>
     </li>
   
 	
@@ -307,6 +322,7 @@
       
       
       <li><h3>文法手册</h3></li>
+      
       
 			
     
@@ -317,6 +333,7 @@
   
 	
     
+      
       
       
 			
@@ -330,6 +347,7 @@
     
       
       
+      
 			
     
     
@@ -339,6 +357,7 @@
   
 	
     
+      
       
       
 			
@@ -352,6 +371,7 @@
     
       
       
+      
 			
     
     
@@ -363,6 +383,7 @@
     
       
       
+      
 			
     
     
@@ -372,6 +393,45 @@
   
 	
     
+      
+      
+      
+        <li><h3>扩展阅读</h3></li>
+        
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/SymbolTable.html" class="sidebar-link">符号表 & 动态执行上下文</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/Matrix.html" class="sidebar-link">矩阵扩展</a>
+    </li>
+  
+	
+    
+      
+      
+      
+			
+    
+    
+    <li>
+      <a href="/guide/extensions/NN.html" class="sidebar-link">神经网络层</a>
+    </li>
+  
+	
+    
+      
       
       
 			
@@ -387,6 +447,7 @@
     
       
       
+      
 			
     
     
@@ -398,6 +459,7 @@
     
       
       
+      
 			
     
     
@@ -407,6 +469,7 @@
   
 	
     
+      
       
       
 			
@@ -434,10 +497,11 @@
     
   
   
-    <h1>安装</h1>
+    <h1>安装 COStreamC</h1>
   
   
-    <h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>COStream 支持在 Ubuntu CentOS 上运行,暂只支持 gcc4.4.x </p>
+    <p>COStreamC 是到2017年为止的实验室同学维护的项目, 使用 bison 和 yacc 来做语法分析, 使用 C 语言的大量 <code>struct</code> 和<code>#define</code>特性完成的项目.</p>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>COStreamC 支持在 Ubuntu CentOS 上运行,暂只支持 gcc4.4.x </p>
 <h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：v1.00</p>
 <p>每个版本的更新日志见 <a href="https://github.com/DML308/COStream/releases" target="_blank" rel="noopener">GitHub</a>。</p>
 <h2 id="安装前置软件"><a href="#安装前置软件" class="headerlink" title="安装前置软件"></a>安装前置软件</h2><p>安装gcc g++ gdb flex bison cmake</p>
@@ -449,6 +513,23 @@
 <h2 id="更新metis文件"><a href="#更新metis文件" class="headerlink" title="更新metis文件"></a>更新metis文件</h2><p></p><p class="tip">仅支持parmetis-4.0</p><br>  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> src/3rdpart/parmetis-4.0/metis/  </span><br><span class="line">$ make config</span><br><span class="line">$ make</span><br><span class="line"><span class="comment">#此时生成了libmetis.a文件,下面将此文件移动到需要的位置</span></span><br><span class="line">$ cp build/Linux-x86_64/libmetis/libmetis.a ../../include/libmetis.a</span><br><span class="line">$ cp build/Linux-x86_64/libmetis/libmetis.a ../../lib/libmetis.a</span><br></pre></td></tr></table></figure><p></p>
 <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/COStream/src</span><br><span class="line">$ make clean</span><br><span class="line">$ make</span><br><span class="line">$ sudo cp COStreamC /usr/<span class="built_in">local</span>/sbin/COStreamC</span><br></pre></td></tr></table></figure>
 <h2 id="编译成功后可以查看版本信息"><a href="#编译成功后可以查看版本信息" class="headerlink" title="编译成功后可以查看版本信息"></a>编译成功后可以查看版本信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ COStreamC -v</span><br><span class="line">COStreamC</span><br><span class="line">Version 1.00 (your compile date)</span><br></pre></td></tr></table></figure>
+<h2 id="运行COStream程序"><a href="#运行COStream程序" class="headerlink" title="运行COStream程序"></a>运行COStream程序</h2><p>尝试运行例子程序中的快速傅里叶变换的COStream程序:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/COStream</span><br><span class="line">$ mkdir run_tests</span><br><span class="line">$ cp tests/SPLtest/Benchmarks/06-FFT5/FFT6.cos run_tests/FFT6.cos</span><br><span class="line">$ <span class="built_in">cd</span> run_tests</span><br><span class="line">$ COStreamC -x86 -nCpuCore 2 FFT6.cos -o ./fft/     </span><br><span class="line"><span class="comment">#出现 compile successful</span></span><br><span class="line">$ <span class="built_in">cd</span> fft</span><br><span class="line">$ make              <span class="comment">#生成可执行文件a.out</span></span><br><span class="line">$ ./a.out           <span class="comment">#出现执行结果。</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="COStream命令说明"><a href="#COStream命令说明" class="headerlink" title="COStream命令说明"></a>COStream命令说明</h2><p>编译.cos程序命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ COStreamC -x86 -nCpucore 2 文件名 -o ./k/</span><br><span class="line">$ COStreamC -gpu -nGpu 4 文件名 -o ./<span class="built_in">test</span>/ -multi 38400</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>CosC为编译命令</li>
+<li>x86 或 gpu为选择后端</li>
+<li>-nCpucore 或-nGpu 设置运行核数</li>
+<li>./k/设置生成文件在当前目录下新建名为k的文件夹       </li>
+</ul>
+</blockquote>
+<p>其他操作:</p>
+<ul>
+<li>执行可执行文件并将结果重定向到result.txt文件： ./可执行文件名 &gt; result.txt</li>
+<li>求执行时间：time ./可执行文件名  -i 10000</li>
+<li>生成同步数据流图：dot 文件名.dot  -Tpng -o 图名称.png</li>
+</ul>
 
   
   
@@ -459,7 +540,7 @@
       
       
       
-        <span style="float: right;"><a href="/guide/helloworld.html">运行第一个COStream程序</a> →</span>
+        <span style="float: right;"><a href="/guide/installation-2.html">安装 COStreamPP</a> →</span>
       
     </div>
   
