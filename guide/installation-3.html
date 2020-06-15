@@ -500,7 +500,99 @@
     <h1>安装 COStreamJS</h1>
   
   
-    
+    <h3 id="当前版本号和持续集成服务测试结果"><a href="#当前版本号和持续集成服务测试结果" class="headerlink" title="当前版本号和持续集成服务测试结果"></a>当前版本号和持续集成服务测试结果</h3><p><img src="https://img.shields.io/npm/v/costreamjs" alt> <a href="https://travis-ci.com/DML308/COStreamJS" target="_blank" rel="noopener"><img src="https://travis-ci.com/DML308/COStreamJS.svg?branch=master" alt="Build Status"></a> </p>
+<blockquote>
+<p>若要了解持续集成服务,可查看<a href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html" target="_blank" rel="noopener">持续集成服务 Travis CI 教程 - 阮一峰的网络日志</a></p>
+</blockquote>
+<h2 id="COStreamJS-是什么-为什么要写该版本"><a href="#COStreamJS-是什么-为什么要写该版本" class="headerlink" title="COStreamJS 是什么? 为什么要写该版本?"></a>COStreamJS 是什么? 为什么要写该版本?</h2><p>COStreamJS 是 COStream 数据流编程语言的 Javscript 实现, 目的是解决原项目<strong>上万行 C++ 源码</strong>给新人带来的理解难度, 降低 COStream 的上手门槛. 目前业内流行的机器学习框架均提供了js 版本, 例如<a href="https://tensorflow.google.cn/js" target="_blank" rel="noopener">Tensorflow.js</a> 和<a href="https://github.com/transcranial/keras-js" target="_blank" rel="noopener">Keras.js</a>. 下表是 COStream 目前两个版本的对比:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>COStreamPP</th>
+<th>COStreamJS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>支持的操作系统</td>
+<td>Ubuntu 16+ / Mac OSX</td>
+<td>Ubuntu 16+ / Mac OSX / Windows</td>
+</tr>
+<tr>
+<td>代码行数</td>
+<td>31471</td>
+<td>7032</td>
+</tr>
+<tr>
+<td>注释行数(占比)</td>
+<td>2156(6.8%)</td>
+<td>1263(16%)</td>
+</tr>
+<tr>
+<td>编译器安装所需依赖</td>
+<td>win 系统需安装 linux 虚拟机 <br>gcc 5.4.0+ / flex / bison/</td>
+<td>node.js</td>
+</tr>
+<tr>
+<td>生成的目标代码的运行平台</td>
+<td>Linux / Mac OSX</td>
+<td>Linux / Mac OSX / Chrome <br>支持 Windows 和 手机的浏览器</td>
+</tr>
+<tr>
+<td>开发和调试环境</td>
+<td>gdb / vscode</td>
+<td>Chrome</td>
+</tr>
+</tbody>
+</table>
+<h2 id="我不想了解-COStream-源码-如何快速运行-COStreamJS"><a href="#我不想了解-COStream-源码-如何快速运行-COStreamJS" class="headerlink" title="我不想了解 COStream 源码, 如何快速运行 COStreamJS ?"></a>我不想了解 COStream 源码, 如何快速运行 COStreamJS ?</h2><p>COStreamJS 现提供两种方式方便用户使用: 命令行入口 和 浏览器入口</p>
+<h3 id="1-命令行入口"><a href="#1-命令行入口" class="headerlink" title="1. 命令行入口"></a>1. 命令行入口</h3><p>首先<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">安装 node.js 环境</a>, 并添加好环境变量, Windows 用户可查看<a href="https://www.cnblogs.com/liuqiyun/p/8133904.html" target="_blank" rel="noopener">教程</a>, Mac 用户请自己百度, Ubuntu 用户直接执行下面两句命令即可<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash</span><br><span class="line">nvm install --lts</span><br></pre></td></tr></table></figure></p>
+<p>接着全局安装 COStreamJS, 编译运行<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g costreamjs</span><br><span class="line">costreamjs -v                    <span class="comment">#查看版本号</span></span><br><span class="line">wget https://raw.githubusercontent.com/DML308/COStreamJS/master/examples/wang.cos <span class="comment">#从网上加载一个例子程序</span></span><br><span class="line">costreamjs wang.cos -j2 -o ./wang/ <span class="comment">#将 wang.cos 编译为目标代码, 其中 -j4 表示设置目标核数为2</span></span><br><span class="line"><span class="built_in">cd</span> wang  </span><br><span class="line">make                             <span class="comment"># 编译目标代码</span></span><br><span class="line">./a.out                          <span class="comment"># 运行目标代码, 查看结果</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-浏览器入口"><a href="#2-浏览器入口" class="headerlink" title="2. 浏览器入口"></a>2. 浏览器入口</h3><p>访问 <a href="https://demo.costream.org" target="_blank" rel="noopener">https://demo.costream.org</a>, 在右上角选择<code>示例程序</code>并依次点击 <strong>一键编译</strong> – <strong>查看目标代码</strong> – <strong>运行目标代码</strong>  , </p>
+<h4 id="编译后可查看-SDF-图"><a href="#编译后可查看-SDF-图" class="headerlink" title="编译后可查看 SDF 图"></a>编译后可查看 SDF 图</h4><p><img src="https://i.loli.net/2020/06/15/NGg2jS64alKwenV.png" alt="编译后可查看 SDF 图"></p>
+<h4 id="手写数字识别的程序运行截图"><a href="#手写数字识别的程序运行截图" class="headerlink" title="手写数字识别的程序运行截图"></a>手写数字识别的程序运行截图</h4><p><img src="https://i.loli.net/2020/06/15/Yq1zuTPIfpjbkQw.png" alt="image.png"></p>
+<h4 id="目前在线版提供了5个例子程序"><a href="#目前在线版提供了5个例子程序" class="headerlink" title="目前在线版提供了5个例子程序"></a>目前在线版提供了5个例子程序</h4><table>
+<thead>
+<tr>
+<th>程序名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCT.cos</td>
+<td>对8x8的数据进行二维 DCT 变换</td>
+</tr>
+<tr>
+<td>FFT.cos</td>
+<td>对8个数据进行 FFT 变换</td>
+</tr>
+<tr>
+<td>matrix.cos</td>
+<td>矩阵扩展的各接口展示</td>
+</tr>
+<tr>
+<td>showErrors.cos</td>
+<td>编译器语义检查的报错能力展示</td>
+</tr>
+<tr>
+<td>mnist.cos</td>
+<td>使用全连接神经网络进行手写数字识别</td>
+</tr>
+</tbody>
+</table>
+<h2 id="我想修改-COStreamJS-的源码-应该怎么做"><a href="#我想修改-COStreamJS-的源码-应该怎么做" class="headerlink" title="我想修改 COStreamJS 的源码, 应该怎么做?"></a>我想修改 COStreamJS 的源码, 应该怎么做?</h2><p>首先从 github 上 clone 项目并自动安装依赖<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/DML308/COStreamJS.git</span><br><span class="line"><span class="built_in">cd</span> COStreamJS</span><br><span class="line">npm install</span><br><span class="line">npm install -g simple-server <span class="comment"># 该指令可选, 安装一个启动简单服务器的工具</span></span><br></pre></td></tr></table></figure></p>
+<p>接着对源码进行修改, 并查看修改结果<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> COStreamJS <span class="comment"># 进入文件目录</span></span><br><span class="line">              <span class="comment"># 修改 xxx 文件的 xx 行</span></span><br><span class="line">npm run build            </span><br><span class="line">npm run dev   <span class="comment"># 启动监听程序, 该监听程序会自动识别源代码的改动, 将改动同步至 `/dist/COStream.js`</span></span><br><span class="line"><span class="built_in">cd</span> dist</span><br><span class="line">simple-server <span class="comment"># 启动一个 WEB 服务器, 此时即可使用浏览器访问下图中给出的地址(http://localhost:3000)</span></span><br><span class="line">   ┌─────────────────────────────────────────────────┐</span><br><span class="line">   │                                                 │</span><br><span class="line">   │   Serving!                                      │</span><br><span class="line">   │                                                 │</span><br><span class="line">   │   - Local:            http://localhost:3000     │</span><br><span class="line">   │   - On Your Network:  http://192.168.0.4:3000   │</span><br><span class="line">   │                                                 │</span><br><span class="line">   │   Copied <span class="built_in">local</span> address to clipboard!            │</span><br><span class="line">   │                                                 │</span><br><span class="line">   └─────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure></p>
+<h3 id="一个修改源代码并查看效果的例子"><a href="#一个修改源代码并查看效果的例子" class="headerlink" title="一个修改源代码并查看效果的例子"></a>一个修改源代码并查看效果的例子</h3><p>在这次代码修改示例中, 我修改了<code>/src/main.js</code>中的主流程<code>COStreamJS.main</code>函数, 增加代码为在执行完语法解析阶段后, 提示<code>Hello World</code>并将语法树输出至控制台</p>
+<p><img src="https://i.loli.net/2020/06/15/7gLBnU8sSfHtOZv.png" alt="image.png"><br>在控制台中启动源码修改监听器<code>npm run dev</code>和本地 WEB 服务器<code>simpler-server</code>(默认访问<code>/dist/index.html</code>)<br><img src="https://i.loli.net/2020/06/15/HyK9amIj2TdPAxh.png" alt="image.png"><br>在Chrome 浏览器的控制台 中查看<code>本次代码修改的效果</code>, 还可以打断点调试<br><img src="https://i.loli.net/2020/06/15/oE1t65OT2iaJVWh.png" alt="image.png"></p>
+<h2 id="关于该项目使用到的库"><a href="#关于该项目使用到的库" class="headerlink" title="关于该项目使用到的库"></a>关于该项目使用到的库</h2><ul>
+<li><strong>怎么做到绘制语法树和绘制数据流图的 ?</strong><br>答: 遍历语法树生成<a href="https://zhuanlan.zhihu.com/p/21993254" target="_blank" rel="noopener">dot字符串</a>, 再使用<a href="http://viz-js.com/" target="_blank" rel="noopener">viz.js</a>工具绘图</li>
+<li><strong>C++项目打包需要使用 Makefile, 该 JS 项目打包你用的什么?</strong><br>答: 我使用<a href="https://www.rollupjs.com/" target="_blank" rel="noopener">rollup</a>作为打包工具, 生成的代码可读性极高</li>
+<li><strong>你的代码编辑框、操作按钮、表格很好看, 用的什么?</strong><br>答: 代码编辑框用的<a href="https://ace.c9.io/" target="_blank" rel="noopener">ace editor</a>, 按钮和表格用的<a href="https://vuematerial.io/" target="_blank" rel="noopener">vue-material</a>, 它是一个基于<a href="cn.vuejs.org">Vue</a>的 UI 框架</li>
+<li><strong>手写数字识别那个手写板和柱形图表你用的什么?</strong><br>答: 手写板我基于<a href>SignaturePad</a>进行了改造,从<code>280 x 280</code>的画布像素提取<code>28 x 28</code>的像素数据作为手写数字识别程序的输入. 柱形图表我用的<a href="http://chartjs.cn/" target="_blank" rel="noopener">Chart</a></li>
+</ul>
+
   
   
     <div class="guide-links">
