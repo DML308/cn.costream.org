@@ -500,7 +500,32 @@
     <h1>安装 COStreamPP</h1>
   
   
-    
+    <hr>
+<p>title: 安装 COStreamPP<br>type: guide<br>order: 22</p>
+<h2 id="costream-version-1-0-0"><a href="#costream-version-1-0-0" class="headerlink" title="costream_version: 1.0.0"></a>costream_version: 1.0.0</h2><p>COStreamPP 是到2020年为止的实验室同学维护的项目, 使用C++重构COStreamC项目。</p>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>COStreamPP 支持在 Ubuntu上运行</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：1.0.0</p>
+<p>每个版本的更新日志见 <a href="https://github.com/DML308/COStreamPP/releases" target="_blank" rel="noopener">GitHub</a>。</p>
+<h2 id="在Ubuntu中安装COStreamPP"><a href="#在Ubuntu中安装COStreamPP" class="headerlink" title="在Ubuntu中安装COStreamPP"></a>在Ubuntu中安装COStreamPP</h2><p>gcc g++ gdb 可为Ubuntu系统自带的版本，不限制版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装flex bison</span></span><br><span class="line">$ sudo apt-get install flex bison  </span><br><span class="line"></span><br><span class="line"><span class="comment">#获取源代码</span></span><br><span class="line">$ git <span class="built_in">clone</span> git@github.com:DML308/COStreamPP.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译COStreamPP</span></span><br><span class="line">$ <span class="built_in">cd</span> COStreamPP/src  </span><br><span class="line">$ <span class="built_in">cd</span> src</span><br><span class="line">$ make clean</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+<h2 id="运行COStream程序"><a href="#运行COStream程序" class="headerlink" title="运行COStream程序"></a>运行COStream程序</h2><p>尝试运行例子程序中的快速傅里叶变换的COStream程序:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编译COStream程序，得到目标代码</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/COStreamPP</span><br><span class="line">$ ./src/a ./tests/Benchmarks/06-FFT5/FFT6.cos</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行目标代码</span></span><br><span class="line">$ <span class="built_in">cd</span> StaticDistCode/FFT6</span><br><span class="line">$ make clean</span><br><span class="line">$ make</span><br><span class="line">$ ./a.out</span><br></pre></td></tr></table></figure>
+<h2 id="COStreamPP命令说明"><a href="#COStreamPP命令说明" class="headerlink" title="COStreamPP命令说明"></a>COStreamPP命令说明</h2><p>编译.cos程序命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./src/a -j 2 文件名 -o ./k/</span><br><span class="line">$ ./src/a -j 4 文件名 -o ./<span class="built_in">test</span>/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+<ul>
+<li>./src/a 为编译命令</li>
+<li>-j 设置运行核数</li>
+<li>-o 设置目标代码输出的文件夹</li>
+</ul>
+<p>其他操作:</p>
+<ul>
+<li>求执行时间：time ./可执行文件名  -i 10000</li>
+<li>生成同步数据流图：dot 文件名.dot  -Tpng -o 图名称.png</li>
+</ul>
+
   
   
     <div class="guide-links">
