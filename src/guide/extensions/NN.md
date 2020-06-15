@@ -52,12 +52,14 @@ res = sequential (data, label) (input_shape, learning_rate, batch_size,loss，in
 | Dropout层 | Dropout | rate | rate为区间(0, 1]内的浮点数 |
 
 目前sequential结构中，支持的训练参数项的值如下表：
+
 | 训练参数项 | 值 | 备注 |
 | --- | --- | --- |
-| 输入尺寸 | input_shape | 整数 或 3个整数表示的元组 | 元组内数据格式遵循channel_last原则 |
-| learning_rate | 浮点数 | 浮点数的区间为(0, 1] || batch_size | 整数 | 必须设置batch_size大于编译器划分后的阶段数 |
+| input_shape | 整数 或 3个整数表示的元组 | 元组内数据格式遵循channel_last原则 |
+| learning_rate | 浮点数 | 浮点数的区间为(0, 1] |
+| batch_size | 整数 | 必须设置batch_size大于编译器划分后的阶段数 |
 | loss | 字符串 | 目前仅支持"variance"(默认值), "crossEntropy" |
-| initializer | 浮点数或字符串或元组 | 支持将模型内所有参数初始化为设置的浮点数，默认初始化为0；支持按照默认值调用字符串所表示的方法；支持按照指定值调用初始化方法，例('gaussRandom', 0, 1),元组内第一项为方法名，其余项为调用时参数； |
+| initializer | 浮点数或字符串或元组 | 支持将模型内所有参数初始化为设置的浮点数，默认初始化为0；支持按照默认值调用字符串所表示的方法；支持按照指定值调用初始化方法，例('gaussRandom', 0, 1),元组内第一项为方法名，其余项为调用时参数；|
 
 ### sequential结构展开后的数据流图
 
