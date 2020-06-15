@@ -4,16 +4,6 @@ type: guide
 order: 22
 costream_version: 1.0.0
 ---
-
-
----
-title: 安装 COStreamPP
-type: guide
-order: 22
-costream_version: 1.0.0
----
-
-
 COStreamPP 是到2020年为止的实验室同学维护的项目, 使用C++重构COStreamC项目。
 
 ### 兼容性
