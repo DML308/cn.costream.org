@@ -500,20 +500,21 @@
     <h1>神经网络层</h1>
   
   
-    <h2 id="sequential结构"><a href="#sequential结构" class="headerlink" title="sequential结构"></a>sequential结构</h2><h3 id="sequential文法"><a href="#sequential文法" class="headerlink" title="sequential文法"></a>sequential文法</h3><p>为了便于在COStream中快速构建深度学习中前馈神经网络的训练程序，引入sequential结构，它基于顺序模型描述神经网络的架构。</p>
+    <h2 id="sequential结构"><a href="#sequential结构" class="headerlink" title="sequential结构"></a>sequential结构</h2><h3 id="sequential文法"><a href="#sequential文法" class="headerlink" title="sequential文法"></a>sequential文法</h3><p>为了便于在COStream中快速构建深度学习中前馈神经网络的训练程序，引入sequential结构，它基于顺序模型描述神经网络的架构。在顺序模型中神经网络层被线性堆叠，每一种神经网络层都是对深度学习算法中某一特定计算的高级抽象表示。因此在sequential结构中将顺序地添加神经网络层，以此描述符合顺序模型的前馈神经网络模型的架构。</p>
 <p>sequential的结构主要由sequential的头部和sequential的主体组成，BNF表示如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sequentialHead	::= ID &apos;=&apos; &apos;sequential&apos; &apos;(&apos; streamID +, &apos;)&apos; &apos;(&apos; expr* &apos;)&apos;</span><br><span class="line"></span><br><span class="line">sequentialBody	::=&apos;&#123;&apos;</span><br><span class="line">                        layerStmts+</span><br><span class="line">                    &apos;&#125;&apos;</span><br><span class="line"></span><br><span class="line">layerStmt ::= &apos;add&apos; layerID &apos;(&apos; expr* &apos;)&apos; &apos;;&apos;</span><br><span class="line"></span><br><span class="line">layerStmts ::= layerStmt &apos;add&apos; layerID &apos;(&apos; expr* &apos;)&apos; &apos;;&apos;</span><br><span class="line">             | layerStmt;</span><br></pre></td></tr></table></figure></p>
-<p>sequential的头部包括两个部分：第一部分是训练模型时的输入流列表，列表中依次是由训练数据集、训练标签集构成的数据流；第二部分是模型的训练参数列表，编译器将按照1.输入数据的大小,2.学习率,3.批量数,4.损失函数,5.参数初始化方法的顺序解析列表中的参数。</p>
-<p>sequential的主体内是操作语句，主要通过add操作符确定顺序模型内神经网络层线性堆叠的顺序。</p>
-<p>如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stream&lt;double x&gt; res, data, label;</span><br><span class="line"></span><br><span class="line">res = sequential (data, label) (input_shape, learning_rate, batch_size,loss，initializer) &#123;</span><br><span class="line">  add layerID1(…);</span><br><span class="line">  add layerID2(…);</span><br><span class="line">  add layerID3(…);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>目前sequential结构中，支持的神经网络层类型，及其支持的参数项如下表：</p>
+<p>sequential的头部包括两个部分：第一部分是训练模型时的输入流列表，列表中依次是由训练数据集、训练标签集构成的数据流；第二部分是模型训练过程的参数列表，编译器将按照固定的顺序解析列表中的参数。</p>
+<p>sequential的主体内是操作语句，主要通过add操作符确定顺序模型内神经网络层的类型、配置参数以及它们线性堆叠的顺序。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stream&lt;double x&gt; res, data, label;</span><br><span class="line">// sequential头部</span><br><span class="line">res = sequential (data, label) (input_shape, learning_rate, batch_size, loss, initializer)</span><br><span class="line">// sequential主体</span><br><span class="line">&#123;</span><br><span class="line">  add layerID1(…);</span><br><span class="line">  add layerID2(…);</span><br><span class="line">  add layerID3(…);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在该sequential结构中，sequential头部的第一个参数列表中分别是用于训练整个模型的训练数据集data和训练标签集label，第二个参数列表中是配置模型训练过程的参数，依次对应输入数据的大小、学习率、批量数、损失函数、参数初始化方法。sequential主体中，layerID是不同神经网络层类型对应的词法元素，每一层神经网络层通过layerID后固定顺序的参数列表进行配置，并通过add关键字按顺序添加到sequential结构中，因此该顺序模型中包含3层layer。</p>
+<p>目前sequential结构中，支持的神经网络层类型及其支持的参数项如下表：</p>
 <table>
 <thead>
 <tr>
 <th>神经网络层类型</th>
 <th>layerID</th>
 <th>参数项</th>
-<th>备注</th>
+<th>参数类型</th>
 </tr>
 </thead>
 <tbody>
@@ -555,9 +556,51 @@
 </tr>
 </tbody>
 </table>
-<p>目前sequential结构中，支持的训练参数项的值如下表：<br>| 训练参数项 | 值 | 备注 |<br>| — | — | — |<br>| 输入尺寸 | input_shape | 整数 或 3个整数表示的元组 | 元组内数据格式遵循channel_last原则 |<br>| learning_rate | 浮点数 | 浮点数的区间为(0, 1] || batch_size | 整数 | 必须设置batch_size大于编译器划分后的阶段数 |<br>| loss | 字符串 | 目前仅支持”variance”(默认值), “crossEntropy” |<br>| initializer | 浮点数或字符串或元组 | 支持将模型内所有参数初始化为设置的浮点数，默认初始化为0；支持按照默认值调用字符串所表示的方法；支持按照指定值调用初始化方法，例(‘gaussRandom’, 0, 1),元组内第一项为方法名，其余项为调用时参数； |</p>
+<blockquote>
+<p>在调用每一种类型的神经网络层时，需要严格遵循该种层参数项的顺序，否则编译器无法正确解析参数！</p>
+</blockquote>
+<p>目前sequential结构中，支持的训练过程参数项及参数项支持的值如下表：</p>
+<table>
+<thead>
+<tr>
+<th>训练过程参数项</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input_shape</td>
+<td>整数 或 3个整数表示的元组</td>
+<td>元组内数据格式遵循channel_last原则</td>
+</tr>
+<tr>
+<td>learning_rate</td>
+<td>浮点数</td>
+<td>浮点数的区间为(0, 1]</td>
+</tr>
+<tr>
+<td>batch_size</td>
+<td>整数</td>
+<td>必须设置batch_size大于编译器划分后的阶段数</td>
+</tr>
+<tr>
+<td>loss</td>
+<td>字符串</td>
+<td>目前仅支持”variance”(默认值), “crossEntropy”</td>
+</tr>
+<tr>
+<td>initializer</td>
+<td>浮点数或字符串或元组</td>
+<td>支持将模型内所有参数初始化为设置的浮点数，默认初始化为0；支持按照默认值调用字符串所表示的方法；支持按照指定值调用初始化方法，例(‘gaussRandom’, 0, 1),元组内第一项为方法名，其余项为调用时参数；</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>配置模型训练过程的参数时，同样需要严格遵循参数项的顺序，否则编译器无法正确解析参数！</p>
+</blockquote>
 <h3 id="sequential结构展开后的数据流图"><a href="#sequential结构展开后的数据流图" class="headerlink" title="sequential结构展开后的数据流图"></a>sequential结构展开后的数据流图</h3><p>sequential结构用于描述前馈神经网络的架构，COStream编译器在编译过程中将其展开成数据流图。对于一个具有2个layer的sequential结构，其展开后的数据流图如下图：</p>
-<p><img src="https://sm.ms/?tdsourcetag=s_pctim_aiomsg" alt="NN-1"></p>
+<p><img src="https://i.loli.net/2020/06/15/l1j67f5SmIRUKt2.png" alt="PART-NN-1.png"></p>
 <p>训练数据集构成的数据流data，经过copy计算节点复制后，生成2条相同的输出流，分别传递给layer1在正向传播和反向传播中对应的计算节点FComp1和BComp1。正向传播过程中，每一层的计算结果逐层正向传递。因此FComp1的输出流将流向layer2在正向传播对应的计算节点FComp2。layer2是模型中的最后一层，其计算结果即为模型的预测值。预测值与标签集数据流流向lossComp计算节点，计算出损失函数关于预测值的梯度。在反向传播过程中，损失函数关于每一层输入的梯度逐层反向传递，该梯度依赖于反向传入的梯度和计算Jaccobian矩阵所需的数据。因此lossComp和FComp1的输出流均流向layer2在反向传播中对应的计算节点BComp2，同理BComp2的输出流和data均流向BComp1，最终BComp1输出损失函数关于训练数据的梯度。</p>
 <h3 id="sequential结构的编译方法"><a href="#sequential结构的编译方法" class="headerlink" title="sequential结构的编译方法"></a>sequential结构的编译方法</h3><p>COStream编译sequential结构的流程图如下图：<br><img src="https://i.loli.net/2020/06/15/c21vtCBr3oPIAya.png" alt="PART-NN-2.png"></p>
 <p>源程序经过词、语法分析得到一棵语法生成树，sequential结构以sequentialNode节点保存在该语法树中。在数据流图展开的过程中，从Main Composite遍历整棵语法树，当遍历到类型为Sequential的节点时，构建一个新的compositeNode，该compositeNode的主体内是模型的训练过程。<br>为了实现上述compositeNode的主体，首先通过双向链表构建层上下文，在获得层上下文后，才能进一步根据layer的配置参数，顺序地对每一层layer初始化。对于包含参数的layer，如全连接层、卷积层，以全局的多维数组声明其权值矩阵。接着按照下一章节即将介绍的生成layer对应的正向、反向计算节点的方法，顺序遍历sequentialNode中的layerNode列表，逐层生成正向计算节点，然后根据训练参数中的loss参数项，生成loss计算节点，再逆序遍历layerNode列表，逐层生成反向计算节点。对于重复使用到的数据流，编译器将生成copy计算节点对其进行复制。因此上述正向、反向计算节点只需考虑计算本身，而不需要考虑数据的流向，最后由编译器根据预期的数据流图，声明一系列数据流连接上述计算节点。如此得到compositeNode的主体，主体内是数据流的声明语句与计算节点的调用语句。<br>用得到的compositeNode替换语法生成树中的sequentialNode，完成sequential结构的展开过程，接下来由COStream编译器将语法树转化为静态数据流图即可。</p>
@@ -568,8 +611,8 @@
 <p>对于反向传播，计算并输出损失函数关于输入各通道上的数据的梯度，由于各通道上的计算之间不存在数据依赖，存在数据并行。假设卷积层中卷积核的通道数为3，则在计算节点内，反向输入流先流入负责对其进行膨胀和扩展的计算节点，再由编译器生成两个special_spit(duplicate)，分别用于对正向输入流和经膨胀和扩展的反向输入复制，并分发给3个单通道上卷积运算的计算节点，可以得到如下图所示的数据流图：<br><img src="https://i.loli.net/2020/06/15/CwrNZbMluk2iPU5.png" alt="PART-NN-3-4.png"></p>
 <h4 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h4><p>对于正向传播，池化层中每个输入通道上的池化运算之间不存在数据依赖关系，因此可以将计算以拆分成与输入通道数数量一致的子计算，并且利用splitjoin结构实现数据并行，假设输入通道数数量为3，可以得到如下图所示的数据流图：<br><img src="https://i.loli.net/2020/06/15/6nFhYZr4JD9Oiol.png" alt="PART-NN-3-5.png"></p>
 <p>对于反向传播，计算并输出损失函数关于输入各通道上的数据的梯度，由于各通道上的计算之间不存在数据依赖，存在数据并行。假设该池化层中输入数据的通道数是3，则计算节点内，由编译器生成两个special_spit(roundrobin)，分别用于对正向输入流和反向输入切片，并分发给3个单通道上池化运算的计算节点，可以得到如下图所示的数据流图：<br><img src="https://i.loli.net/2020/06/15/MFdv7N41VwsczOC.png" alt="PART-NN-3-6.png"></p>
-<h3 id="组内同步组件异步的参数更新方法"><a href="#组内同步组件异步的参数更新方法" class="headerlink" title="组内同步组件异步的参数更新方法"></a>组内同步组件异步的参数更新方法</h3><p>为便于说明软件流水线并行执行过程，假设COStream编译器将图1所示的数据流图中的计算节点，按照从正向传播到反向传播过程中的执行顺序，依次划分到独立的A~E阶段。阶段间的数据依赖关系如下：A阶段不依赖其他阶段，B阶段依赖于A阶段，C阶段依赖于B阶段，D阶段依赖于C阶段，E阶段依赖于B阶段和D阶段，F阶段依赖于A阶段和E阶段。<br>下图展示了软件流水执行过程，某一阶段得到计算所需的所有数据才执行运算，能通过阶段差消除同一流水周期中不同阶段在并行执行时的耦合。因此在1~5流水周期中存在等待状态的阶段，这是流水线的填充过程，在第6~10流水周期所有的阶段都会被执行，这是流水线的稳态执行过程，在第11~15流水周期所有阶段逐步执行完毕，这是流水线的排空过程。<br><img src="https://i.loli.net/2020/06/15/4h5itgJLjBb7X19.png" alt="PART-NN-4-1.png"><br>下图展示了软件流水执行过程中权值矩阵变量上的读写冲突。B、C 阶段中包含全连接层正向计算节点，其纹理代表访问的权值矩阵版本，E、F 阶段中包含全连接层反向计算节点，其纹理代表更新后的权值矩阵版本。由于权值矩阵以全局变量的形式保存在程序中，在第5个流水周期，C 阶段访问第二层全连接层的权值矩阵和E 阶段更新第二层全连接层的权值矩阵在不同线程上并行运行，造成C 阶段访问到初始的和第一次更新后的，两种版本的权值矩阵，得到错误的正向传播结果，造成本次训练迭代整体错误。因此只有方框圈出的第1、2次训练迭代，在正向传播中不存在访问多个版本的权值矩阵的问题。<br><img src="https://i.loli.net/2020/06/15/4dgqMtJ5kTsf3cp.png" alt="PART-NN-4-2.png"><br>下图展示了组内同步组间异步更新参数的过程，设置训练模型的批量数是7，在第8、9流水周期，阶段B、C分别完成第一次批量迭代，因此在第9，10流水周期，阶段B、C分别开始访问另一组参数。在第11流水周期，阶段E更新第二层的权值矩阵时，其在正向传播过程对应的阶段C已经开始迭代训练另一组权值矩阵，不会出现权值参数版本不一致的问题。同理在第12流水周期，阶段F更新第一层的权值矩阵时，其在正向传播过程对应的阶段B也已经开始迭代训练另一组权值矩阵，不会出现权值参数版本不一致的问题。<br><img src="https://i.loli.net/2020/06/15/QPm9FAse4u3bjWc.png" alt="PART-NN-4-3.png"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://keras-zh.readthedocs.io/models/sequential/" target="_blank" rel="noopener">Keras的Sequential模型API</a><br><a href="https://medium.com/@mayank.utexas/backpropagation-for-convolution-with-strides-8137e4fc2710" target="_blank" rel="noopener">卷积神经反向传播中的计算</a></p>
+<h3 id="组内同步组件异步的参数更新方法"><a href="#组内同步组件异步的参数更新方法" class="headerlink" title="组内同步组件异步的参数更新方法"></a>组内同步组件异步的参数更新方法</h3><p>为便于说明软件流水线并行执行过程，假设COStream编译器将图1所示的数据流图中的计算节点按照其执行顺序，依次被划分到独立的A~E阶段。阶段间的数据依赖关系如下：A阶段不依赖其他阶段，B阶段依赖于A阶段，C阶段依赖于B阶段，D阶段依赖于C阶段，E阶段依赖于B阶段和D阶段，F阶段依赖于A阶段和E阶段。<br>下图展示了软件流水执行过程，某一阶段得到计算所需的所有数据才执行运算，能通过阶段差消除同一流水周期中不同阶段在并行执行时的耦合。因此在1~5流水周期中存在等待状态的阶段，这是流水线的填充过程，在第6~10流水周期所有的阶段都会被执行，这是流水线的稳态执行过程，在第11~15流水周期所有阶段逐步执行完毕，这是流水线的排空过程。<br><img src="https://i.loli.net/2020/06/15/4h5itgJLjBb7X19.png" alt="PART-NN-4-1.png"><br>下图展示了软件流水执行过程中权值矩阵变量上的读写冲突。B、C 阶段中包含全连接层正向计算节点，其纹理代表访问的权值矩阵版本，E、F 阶段中包含全连接层反向计算节点，其纹理代表更新后的权值矩阵版本。由于权值矩阵以全局变量的形式保存在程序中，在第5个流水周期，C 阶段访问第二层全连接层的权值矩阵和E 阶段更新第二层全连接层的权值矩阵在不同线程上并行运行，造成C 阶段访问到初始的和第一次更新后的，两种版本的权值矩阵，得到错误的正向传播结果，造成本次训练迭代整体错误。因此只有方框圈出的第1、2次训练迭代，在正向传播中不存在访问多个版本的权值矩阵的问题。<br><img src="https://i.loli.net/2020/06/15/4dgqMtJ5kTsf3cp.png" alt="PART-NN-4-2.png"><br>下图展示了组内同步组间异步更新参数的过程，设置训练模型的批量数是7，在第8、9流水周期，阶段B、C分别完成第一次批量迭代，因此在第9，10流水周期，阶段B、C分别开始访问另一组参数。在第11流水周期，阶段E更新第二层的权值矩阵时，其在正向传播过程对应的阶段C已经开始迭代训练另一组权值矩阵，不会出现权值参数版本不一致的问题。同理在第12流水周期，阶段F更新第一层的权值矩阵时，其在正向传播过程对应的阶段B也已经开始迭代训练另一组权值矩阵，不会出现权值参数版本不一致的问题。<br><img src="https://i.loli.net/2020/06/15/QPm9FAse4u3bjWc.png" alt="PART-NN-4-3.png"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://keras-zh.readthedocs.io/models/sequential/" target="_blank" rel="noopener">Keras的Sequential模型API</a><br><a href="https://medium.com/@mayank.utexas/backpropagation-for-convolution-with-strides-8137e4fc2710" target="_blank" rel="noopener">卷积层反向传播中的计算</a></p>
 
   
   
