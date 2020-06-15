@@ -670,7 +670,7 @@
 </ol>
 <p>对于<code>add语句</code>，add语句决定了具体调用的Composite，支持传入参数。静态数据流图生成时，若遇到带有参数的add语句，则从执行上下文的符号表中取出各参数的当前值，将该值封装到Composite调用语句中，完成Composite调用语句参数的常量化。</p>
 <p>对于<code>splitjoin和pipeline语句</code>，splitjoin和pipeline结构分别用于构建串行和并行的子数据流图，内部包含add语句，处理方法为生成Composite调用数组，将内部add语句经分析处理后的Composite调用添加到数组中，来确定splitjoin和pipeline语句内部计算节点的调用次数以及参数值。在解析splitjoin或pipeline结构生成静态数据流图中的节点时，会根据此数组展开splitjoin或pipeline结构。</p>
-<h2 id="执行上下文和常量传播示例"><a href="#执行上下文和常量传播示例" class="headerlink" title="执行上下文和常量传播示例"></a>执行上下文和常量传播示例</h2><p><img src="../img/PART3-1.png" alt="FFT部分算法常量传播示例"></p>
+<h2 id="执行上下文和常量传播示例"><a href="#执行上下文和常量传播示例" class="headerlink" title="执行上下文和常量传播示例"></a>执行上下文和常量传播示例</h2><p><img src="https://i.loli.net/2020/06/15/cota2UdrvD59ViA.png" alt="FFT部分算法常量传播示例"></p>
 <p>在图中，左侧为常量传播的过程，右侧为FFT算法的部分代码。图中最左侧是变量n的常量传播过程，其值来自<code>CombineDFT调用</code>传入的参数8，并将值传递到for循环语句中。中间部分展示变量j的常量传播过程。j的值随<code>for循环</code>的执行而变化。通过对for循环的解析，得出for循环会执行三次。对每一次循环进行模拟，得到每次循环中j的值分别为2、4、8。for循环包含在<code>pipeline结构</code>中，且在for循环中包含<code>CombineDFTX调用</code>，并传入j作为参数。因此在每一次循环中，常量传播得到的j的值作为参数保存在CombineDFTX调用中，每一次循环中CombineDFTX调用则存储在pipeline结构的<code>Composite调用数组</code>中。右侧展示的是变量TN的常量传播过程，其值来自pipeline结构中Composite调用数组的三个<code>CombineDFTX调用</code>。通过对三次CombineDFTX调用的解析，为每一次调用生成新的<code>执行上下文</code>，执行上下文中保存每次CombineDFTX调用传入的参数值2、4、8作为TN的值。</p>
 
   
