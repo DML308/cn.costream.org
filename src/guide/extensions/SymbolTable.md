@@ -4,13 +4,6 @@ type: guide
 order: 40
 
 ---
-
----
-title: 符号表 & 动态执行上下文
-type: guide
-order: 40
-
----
 ## 符号表
 
 符号表是编译技术中的重要一项，用于存储标识符在源码中的信息。COStream中的符号表，不仅包含`变量`信息，还搜集`Stream`、`Composite`结构中包含的信息，来满足COStream在静态数据流图生成过程中对变量值、数据流类型和Composite参数等信息的读写需求，以此来实现`执行上下文`对Composite调用的模拟以及`常量传播`对变量的常量值的计算。
@@ -110,6 +103,6 @@ COStream中执行上下文保存两类信息，一类是Composite调用的`参�
 
 ## 执行上下文和常量传播示例
 
-![FFT部分算法常量传播示例](../../img/PART3-1.png)
+![FFT部分算法常量传播示例](/img/PART3-1.png)
 
 在图中，左侧为常量传播的过程，右侧为FFT算法的部分代码。图中最左侧是变量n的常量传播过程，其值来自`CombineDFT调用`传入的参数8，并将值传递到for循环语句中。中间部分展示变量j的常量传播过程。j的值随`for循环`的执行而变化。通过对for循环的解析，得出for循环会执行三次。对每一次循环进行模拟，得到每次循环中j的值分别为2、4、8。for循环包含在`pipeline结构`中，且在for循环中包含`CombineDFTX调用`，并传入j作为参数。因此在每一次循环中，常量传播得到的j的值作为参数保存在CombineDFTX调用中，每一次循环中CombineDFTX调用则存储在pipeline结构的`Composite调用数组`中。右侧展示的是变量TN的常量传播过程，其值来自pipeline结构中Composite调用数组的三个`CombineDFTX调用`。通过对三次CombineDFTX调用的解析，为每一次调用生成新的`执行上下文`，执行上下文中保存每次CombineDFTX调用传入的参数值2、4、8作为TN的值。
