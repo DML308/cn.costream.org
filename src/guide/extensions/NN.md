@@ -63,7 +63,7 @@ res = sequential (data, label) (input_shape, learning_rate, batch_size,loss，in
 
 sequential结构用于描述前馈神经网络的架构，COStream编译器在编译过程中将其展开成数据流图。对于一个具有2个layer的sequential结构，其展开后的数据流图如下图：
 
-![NN-1](https://sm.ms/?tdsourcetag=s_pctim_aiomsg)
+![PART-NN-1.png](https://i.loli.net/2020/06/15/l1j67f5SmIRUKt2.png)
 
 训练数据集构成的数据流data，经过copy计算节点复制后，生成2条相同的输出流，分别传递给layer1在正向传播和反向传播中对应的计算节点FComp1和BComp1。正向传播过程中，每一层的计算结果逐层正向传递。因此FComp1的输出流将流向layer2在正向传播对应的计算节点FComp2。layer2是模型中的最后一层，其计算结果即为模型的预测值。预测值与标签集数据流流向lossComp计算节点，计算出损失函数关于预测值的梯度。在反向传播过程中，损失函数关于每一层输入的梯度逐层反向传递，该梯度依赖于反向传入的梯度和计算Jaccobian矩阵所需的数据。因此lossComp和FComp1的输出流均流向layer2在反向传播中对应的计算节点BComp2，同理BComp2的输出流和data均流向BComp1，最终BComp1输出损失函数关于训练数据的梯度。
 
@@ -117,4 +117,4 @@ COStream编译sequential结构的流程图如下图：
 ## 参考
 
 [Keras的Sequential模型API](https://keras-zh.readthedocs.io/models/sequential/)
-[卷积神经反向传播中的计算](https://medium.com/@mayank.utexas/backpropagation-for-convolution-with-strides-8137e4fc2710)
+[卷积层反向传播中的计算](https://medium.com/@mayank.utexas/backpropagation-for-convolution-with-strides-8137e4fc2710)
